@@ -32,29 +32,25 @@ const UpdateMovieForm = props => {
         });
     };
 
-    const handleSubmit = e => {
+    const handleSubmitEdit = e => {
         e.preventDefault();
         axios
-            .put('http://localhost:5000/api/movies/${id}', movie)
+            .put(`http://localhost:5000/api/movies/${id}`, movie)
             .then(res => {
                 console.log("updated:", res.data);
                 props.setMovieList(res)
                 history.push(`/Movies/${id}`);
-                
+
             })
             
             .catch(err => console.error("Failed to update:", err))
     }
 
-    // const handleUpdateMovie = e => {      //submit handler
-    //     e.preventDefault();
-    //     props.updateMovieOnServer()
-    // }
 
     return (
         <div className='update-movie-form'>
             <h2>Update A Movie</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitEdit}>
                 <input
                     type="text"
                     name="title"

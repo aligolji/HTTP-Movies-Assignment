@@ -22,14 +22,6 @@ const App = () => {
     setSavedList([...savedList, movie]);
   };
 
-  // const updateMovieOnServer = (movie, id) => {
-  //   axios
-  //     .put(`http://localhost:5000/api/movies/${id}`, movie)
-  //     .then(response => console.log("Updated:", response))
-  //     .catch(err => console.log("Failed to Update:", err));
-  // }
-
-
   useEffect(() => {
     getMovieList();
   }, []);
@@ -49,7 +41,6 @@ const App = () => {
       <Route path="/update-movie/:id">
         <UpdateMovieForm
         setMovieList={setMovieList}
-          // updateMovieOnServer={updateMovieOnServer}
         />
       </Route>
     </>
